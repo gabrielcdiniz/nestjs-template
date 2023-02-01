@@ -41,3 +41,6 @@ lerna-debug.log*
 # Environments
 .env*
 !.env.example
+
+# Kubernetes 
+manifests/*

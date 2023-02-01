@@ -22,5 +22,5 @@
     "lib": ["es2020"],
     "esModuleInterop": true
   },
-  "include": ["src/**/*.ts", "test/**/*.ts"]
+  "include": ["src/**/*.ts", "test/**/*.ts", "**/*.config.ts"]
 }

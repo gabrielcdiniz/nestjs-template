@@ -9,7 +9,6 @@ module.exports = {
     '@typescript-eslint/eslint-plugin',
     'eslint-plugin-import',
     'eslint-plugin-import-helpers',
-    'jest',
     'eslint-plugin-unused-imports',
   ],
   extends: ['eslint:recommended', 'plugin:import/typescript'],
@@ -19,7 +18,7 @@ module.exports = {
     node: true,
     jest: true,
   },
-  ignorePatterns: ['.eslintrc.js', 'webpack.config.js'],
+  ignorePatterns: ['.eslintrc.js', 'webpack.config.js', 'commitlint.config.js'],
   rules: {
     '@typescript-eslint/interface-name-prefix': 'off',
     '@typescript-eslint/explicit-function-return-type': 'off',
@@ -31,8 +30,9 @@ module.exports = {
         newlinesBetween: 'always',
         groups: [
           'module',
-          ['/^@(database)/'], // add here the order imports
+          ['/^@(modules)/'], // add here the order imports
           ['parent', 'sibling', 'index'],
+          'type',
         ],
         alphabetize: { order: 'asc', ignoreCase: true },
       },
@@ -47,17 +47,4 @@ module.exports = {
     'no-multiple-empty-lines': ['error', { max: 1, maxEOF: 0 }],
     'unused-imports/no-unused-imports': 'error',
   },
-  overrides: [
-    {
-      rules: {
-        '@typescript-eslint/no-floating-promises': 'off',
-      },
-      files: ['*.ts', '*.tsx'],
-      extends: ['plugin:@typescript-eslint/recommended'],
-
-      parserOptions: {
-        project: ['./tsconfig.json'],
-      },
-    },
-  ],
 };
